@@ -4,3 +4,9 @@ node_modules/
 .vscode/
 *.log
 Thumbs.db
+
+# Конфіденційні файли
+/Users/valeriy_k./Downloads/Projects/Solar-for-business/Text data/dani.txt
+../Text data/dani.txt
+Text data/dani.txt
+**/dani.txt
