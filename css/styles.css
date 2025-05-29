@@ -184,6 +184,31 @@ section {
 }
 
 /* Equipment Section */
+.equipment-image-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 28px 0 36px 0;
+}
+.equipment-main-img {
+    max-width: 420px;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px 0 rgba(44,62,80,0.10);
+    background: #fff;
+    padding: 12px 18px;
+    object-fit: contain;
+}
+@media (max-width: 600px) {
+    .equipment-main-img {
+        max-width: 95vw;
+        padding: 6px 4vw;
+    }
+    .equipment-image-wrapper {
+        margin: 18px 0 22px 0;
+    }
+}
+
 .equipment-section {
     padding: var(--spacing-xxl) 0;
     background-color: var(--secondary-bg);
@@ -473,6 +498,94 @@ section {
     display: block;
     font-size: 1.25rem;
     margin-bottom: var(--spacing-xs);
+}
+
+/* Pain & Solution Section */
+.pain-solution-section {
+    background: linear-gradient(120deg, #f8fafc 60%, #e6f4ea 100%);
+    border-radius: 24px;
+    box-shadow: 0 6px 32px 0 rgba(44,62,80,0.09);
+    padding: 56px 0 48px 0;
+    margin-bottom: var(--spacing-xl);
+}
+.pain-solution-section .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-dark);
+    margin-bottom: 40px;
+}
+.pain-solution-grid {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.pain-solution-item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 280px;
+    max-width: 370px;
+    flex: 1 1 320px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 12px 0 rgba(44,62,80,0.06);
+    padding: 28px 22px 22px 22px;
+    align-items: stretch;
+    transition: box-shadow 0.3s;
+}
+.pain-solution-item:hover {
+    box-shadow: 0 8px 32px 0 rgba(44,62,80,0.13);
+}
+.pain-box, .solution-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.pain-box {
+    border-bottom: 2px dashed #f44336;
+    margin-bottom: 8px;
+}
+.solution-box {
+    border-top: 2px dashed #43a047;
+    margin-top: 8px;
+}
+.pain-icon {
+    font-size: 2.2rem;
+    color: #f44336;
+    margin-bottom: 10px;
+}
+.solution-icon {
+    font-size: 2rem;
+    color: #43a047;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+.pain-box h3, .solution-box h3 {
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--accent-dark);
+    margin: 0 0 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.pain-box p, .solution-box p {
+    color: #555;
+    font-size: 1rem;
+    margin: 0;
+}
+@media (max-width: 900px) {
+    .pain-solution-grid {
+        flex-direction: column;
+        gap: 24px;
+    }
+    .pain-solution-item {
+        max-width: 100%;
+    }
 }
 
 /* Financing Section */
@@ -1244,6 +1357,190 @@ section {
     opacity: 1;
 }
 
+
+/* === Footer Styles Start === */
+.site-footer {
+    /* background-color: var(--accent-dark); /* Already set, but can be confirmed */
+    /* color: var(--text-white); /* Already set, but can be confirmed */
+    padding: var(--spacing-xl) 0 var(--spacing-md);
+}
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.footer-logo,
+.footer-nav,
+.footer-contact,
+.footer-social {
+    flex: 1 1 220px; /* Adjusted basis for potentially 4 items, allows wrapping */
+    min-width: 200px; 
+}
+
+.footer-logo h3 {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--text-white);
+    font-size: 1.8rem; 
+    font-weight: 700;
+}
+
+.footer-nav h4,
+.footer-contact h4,
+.footer-social h4 {
+    font-size: 1.2rem;
+    color: var(--text-white);
+    margin-top: 0;
+    margin-bottom: var(--spacing-md);
+    font-weight: 600;
+}
+
+.footer-nav ul,
+.footer-contact ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-nav li,
+.footer-contact li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.footer-nav li:last-child,
+.footer-contact li:last-child {
+    margin-bottom: 0;
+}
+
+.footer-nav a,
+.footer-contact ul a /* Targeting 'a' inside ul for contacts specifically */ {
+    color: var(--text-light-gray); 
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.footer-nav a:hover,
+.footer-contact ul a:hover {
+    color: var(--accent-light);
+    text-decoration: underline;
+}
+
+.footer-contact .contact-line,
+.footer-contact .phone-large {
+    color: var(--text-light-gray);
+    margin: 0 0 var(--spacing-sm) 0;
+    display: flex; 
+    align-items: center;
+    line-height: 1.6;
+}
+
+/* Keep existing .footer-contact a styles for direct children if needed, or refine */
+/* The .footer-contact ul a targets links within the new list structure */
+
+.footer-contact .phone-icon {
+    margin-right: var(--spacing-xs);
+    color: var(--accent-light); 
+}
+
+/* .social-icons and .social-icons a are already styled later, check for overrides */
+/* These are general styles for social icons if not covered adequately */
+.footer-social .social-icons {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.footer-social .social-icons a {
+    color: var(--text-white); /* Ensure color is white if not overridden by specific .social-icons a */
+    font-size: 1.5rem;
+    transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer-social .social-icons a:hover {
+    color: var(--accent-light);
+    transform: scale(1.1);
+}
+
+/* .footer-bottom and .footer-links are already styled later, check for overrides */
+/* These are general styles if not covered adequately */
+.site-footer .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--spacing-lg);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-size: 0.9rem;
+    color: var(--text-light-gray);
+}
+
+.site-footer .footer-bottom p {
+    margin: 0;
+}
+
+.site-footer .footer-links a {
+    color: var(--text-light-gray);
+    text-decoration: none;
+    margin-left: var(--spacing-md);
+    transition: color var(--transition-fast);
+}
+
+.site-footer .footer-links a:hover {
+    color: var(--accent-light);
+    text-decoration: underline;
+}
+
+@media (max-width: 992px) { /* Adjusted breakpoint for 4 columns */
+    .footer-logo,
+    .footer-nav,
+    .footer-contact,
+    .footer-social {
+        flex-basis: calc(50% - var(--spacing-lg) / 2); /* Two columns */
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column; 
+        align-items: flex-start; 
+    }
+
+    .footer-logo,
+    .footer-nav,
+    .footer-contact,
+    .footer-social {
+        flex-basis: auto; 
+        width: 100%;     
+        margin-bottom: var(--spacing-lg);
+    }
+    .footer-logo h3 {
+        font-size: 1.6rem;
+    }
+
+    .site-footer .footer-bottom {
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;
+    }
+
+    .site-footer .footer-links {
+        margin-top: var(--spacing-sm);
+        display: flex; /* Ensure flex for gap */
+        flex-direction: column; /* Stack links vertically */
+        gap: var(--spacing-xs);
+    }
+
+    .site-footer .footer-links a {
+        margin-left: 0; /* Remove left margin for stacked links */
+        /* display: block; /* Already flex column */
+        /* margin-bottom: var(--spacing-xs); /* Replaced by gap */
+    }
+}
+/* === Footer Styles End === */
+
 /* Lead Form Section */
 .lead-form-section {
     padding: var(--spacing-xxl) 0;
@@ -1258,7 +1555,7 @@ section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234caf50' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234caf50' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
     opacity: 0.5;
     z-index: 0;
 }
@@ -1718,16 +2015,20 @@ section {
 }
 
 .team-card {
-    min-width: 280px; /* Ширина картки, можна налаштувати */
-    margin: 0 15px;   /* Відступи між картками */
-    perspective: 1000px; /* Для 3D ефекту перевертання */
-    cursor: pointer;
+    width: 320px; /* Збільшено ширину картки */
+    min-height: 320px; /* Збільшено висоту для більших фото */
+    height: 320px; /* Фіксована висота для квадратної форми */
+    flex-shrink: 0;
+    perspective: 1000px;
+    background-color: transparent;
+    margin: 0 15px var(--spacing-md) 15px;
+    position: relative;
 }
 
 .team-card-inner {
     position: relative;
     width: 100%;
-    height: 380px; /* Висота картки, можна налаштувати */
+    height: 100%;
     text-align: center;
     transition: transform 0.6s;
     transform-style: preserve-3d;
@@ -1744,15 +2045,17 @@ section {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
     backface-visibility: hidden;
-    border-radius: 15px;
-    padding: 25px;
-    box-sizing: border-box;
+    border-radius: var(--border-radius-lg);
+    background-color: var(--background-light);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    padding: var(--spacing-md);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: flex-start;
+    border: 2px solid var(--primary-color);
+    transition: all 0.3s ease;
 }
 
 .team-card-front {
@@ -1760,14 +2063,36 @@ section {
     color: var(--text-dark);
 }
 
-.team-card-front .member-photo {
-    margin-bottom: 15px;
+.team-card-front .member-photo, 
+.team-card-back .member-photo-back { 
+    width: 180px; /* Збільшено розмір фото */
+    height: 180px; 
+    margin: 0 auto var(--spacing-sm) auto;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #f0f0f0;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .member-photo img,
+.team-card:hover .member-photo-back img {
+    transform: scale(1.05);
+}
+
+.team-card-front .member-photo img,
+.team-card-back .member-photo-back img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Масштабування фото для заповнення контейнера */
+    display: block;
 }
 
 .team-card-front h4 {
     font-size: 1.3em;
     color: var(--primary-color);
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-md);
 }
 
 .team-card-front p {
@@ -1842,6 +2167,126 @@ section {
         margin: 0 10px;
     }
 }
+
+/* Team Stats Section */
+.team-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 800px;
+    margin: 30px auto 40px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 20px 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(3px);
+    transform: scale(0.95);
+    opacity: 0.95;
+}
+
+.stat-item:hover {
+    transform: scale(0.97);
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    opacity: 1;
+}
+
+.stat-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    opacity: 0.6;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.stat-item:hover::before {
+    height: 3px;
+    opacity: 0.9;
+}
+
+.stat-number {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 8px;
+    line-height: 1.2;
+    position: relative;
+    display: inline-block;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    filter: blur(0.3px);
+}
+
+.stat-item:hover .stat-number {
+    transform: scale(1.05);
+    filter: none;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    background: linear-gradient(135deg, var(--primary-dark), var(--accent-dark));
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-top: 8px;
+    position: relative;
+    display: inline-block;
+    padding: 0 5px;
+    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    line-height: 1.4;
+}
+
+.stat-item:hover .stat-label {
+    color: var(--text-color);
+    transform: translateY(0);
+    font-weight: 600;
+}
+
+@media (max-width: 768px) {
+    .team-stats {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        max-width: 500px;
+    }
+    
+    .stat-item {
+        padding: 15px 10px;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .team-stats {
+        grid-template-columns: 1fr;
+        max-width: 300px;
+    }
+}
+
 @media (max-width: 480px) {
     .team-slider-wrapper {
         max-width: 100%; /* Дозволити слайдеру займати всю ширину */
