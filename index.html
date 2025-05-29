@@ -16,6 +16,8 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/testimonials-slider.css">
+    <link rel="stylesheet" href="css/solar-calculator.css">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -459,66 +461,94 @@
             <section class="cases-section" id="cases">
                 <div class="container">
                     <h2 class="section-title">Кейси та результати</h2>
-                    <div class="cases-slider animate">
-                        <div class="case-item">
-                            <div class="case-image">
-                                <div style="width: 100%; height: 200px; background-color: var(--accent); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">Фото кейсу</div>
-                                <!-- img src="images/case-1.jpg" alt="Кейс ПП «Універсал»">
-                            </div>
-                            <div class="case-content">
-                                <h3>ПП «Універсал», 50 кВт</h3>
-                                <div class="case-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">20 000</span>
-                                        <span class="metric-label">грн/міс економії</span>
+                    
+                    <div class="cases-slider-container">
+                        <div class="cases-slider" id="casesSlider">
+                            <!-- Кейс 1 -->
+                            <div class="case-slide">
+                                <div class="case-card">
+                                    <div class="case-image">
+                                        <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Сонячні панелі на даху підприємства">
                                     </div>
-                                    <div class="metric">
-                                        <span class="metric-value">3,5</span>
-                                        <span class="metric-label">роки окупності</span>
+                                    <div class="case-rating">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <div class="case-content">
+                                        <h3>ПП «Універсал», 50 кВт</h3>
+                                        <p>Виробниче підприємство змогло знизити залежність від відключень електроенергії та заощаджувати до 20 000 грн/міс на витратах на електроенергію. Термін окупності - 3,5 роки.</p>
                                     </div>
                                 </div>
-                                <p>Виробниче підприємство змогло знизити залежність від відключень електроенергії та заощаджувати на витратах на електроенергію.</p>
+                            </div>
+                            
+                            <!-- Кейс 2 -->
+                            <div class="case-slide">
+                                <div class="case-card">
+                                    <div class="case-image">
+                                        <img src="https://images.unsplash.com/photo-1559302995-f8d3d980e2d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Сонячні панелі на складі">
+                                    </div>
+                                    <div class="case-rating">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <div class="case-content">
+                                        <h3>Склад «Логістика-1», 100 кВт</h3>
+                                        <p>Великий логістичний комплекс отримав автономне енергопостачання та знизив рахунки за електроенергію на 45%. Повна окупність проекту - 3 роки.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Кейс 3 -->
+                            <div class="case-slide">
+                                <div class="case-card">
+                                    <div class="case-image">
+                                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Сонячна електростанція на території ферми">
+                                    </div>
+                                    <div class="case-rating">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <div class="case-content">
+                                        <h3>Ферма «Агро-Захід», 75 кВт</h3>
+                                        <p>Сільськогосподарське підприємство забезпечило стабільне електропостачання для всіх виробничих процесів. Економія складає близько 30 000 грн щомісяця.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Кейс 4 -->
+                            <div class="case-slide">
+                                <div class="case-card">
+                                    <div class="case-image">
+                                        <img src="https://images.unsplash.com/photo-1566093097221-ac2335b09e70?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Сонячні панелі на даху готелю">
+                                    </div>
+                                    <div class="case-rating">
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                        <span class="star">★</span>
+                                    </div>
+                                    <div class="case-content">
+                                        <h3>Готель «Карпати», 120 кВт</h3>
+                                        <p>Туристичний комплекс повністю перейшов на сонячну енергію для забезпечення потреб гостей. Зниження витрат на електроенергію - 60% від попередніх показників.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="case-item">
-                            <div class="case-image">
-                                <div style="width: 100%; height: 200px; background-color: var(--accent); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">Фото кейсу</div>
-                                <!-- img src="images/case-2.jpg" alt="Кейс Склад «Логістика-1»" -->
-                            </div>
-                            <div class="case-content">
-                                <h3>Склад «Логістика-1», 100 кВт</h3>
-                                <div class="case-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">3</span>
-                                        <span class="metric-label">роки ROI</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">45%</span>
-                                        <span class="metric-label">зниження рахунків</span>
-                                    </div>
-                                </div>
-                                <p>Великий логістичний комплекс отримав автономне енергопостачання та значно скоротив витрати на електроенергію.</p>
-                            </div>
-                        </div>
-                        <div class="case-item">
-                            <div class="case-image">
-                                <div style="width: 100%; height: 200px; background-color: var(--accent); display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;">Фото кейсу</div>
-                                <!-- img src="images/case-3.jpg" alt="Кейс Виробництво «ЕкоПак»" -->
-                            </div>
-                            <div class="case-content">
-                                <h3>Виробництво «ЕкоПак», 75 кВт</h3>
-                                <div class="case-metrics">
-                                    <div class="metric">
-                                        <span class="metric-value">30%</span>
-                                        <span class="metric-label">державний грант</span>
-                                    </div>
-                                    <div class="metric">
-                                        <span class="metric-value">4</span>
-                                        <span class="metric-label">роки окупності</span>
-                                    </div>
-                                </div>
-                                <p>Підприємство отримало державний грант на встановлення СЕС та зменшило тарифи на електроенергію на 45%.</p>
-                            </div>
+                        
+                        <div class="slider-controls">
+                            <button class="slider-arrow prev" id="prevCase">&lt;</button>
+                            <div class="slider-dots" id="caseDots"></div>
+                            <button class="slider-arrow next" id="nextCase">&gt;</button>
                         </div>
                     </div>
                     <div class="text-center">
@@ -531,71 +561,125 @@
             <section class="testimonials-section" id="testimonials">
                 <div class="container">
                     <h2 class="section-title">Відгуки клієнтів</h2>
-                    <div class="testimonials-container animate">
-                        <div class="testimonial-item">
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                            <div class="testimonial-text">
-                                <p>«Швидко, професійно і з гарантією. Вся робота була виконана вчасно, без затримок та додаткових витрат. Рекомендую!»</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-photo">
-                                    <div style="width: 60px; height: 60px; border-radius: 50%; background-color: var(--accent-dark); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">К</div>
-                                    <!-- img src="images/client-1.jpg" alt="Іван П.">
+                    
+                    <div class="testimonials-slider-wrapper">
+                        <div class="testimonials-slider" id="testimonialsSlider">
+                            <!-- Відгук 1 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">“</div>
+                                    <div class="testimonial-content">
+                                        <p>Швидко, професійно і з гарантією. Вся робота була виконана вчасно, без затримок та додаткових витрат. Рекомендую!</p>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Іван П.">
+                                        </div>
+                                        <div class="author-details">
+                                            <h4>Іван П.</h4>
+                                            <p>Директор ТОВ "ЛьвівЕнерго"</p>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="author-info">
-                                    <h4>Іван П.</h4>
-                                    <p>Директор ТОВ "ЛьвівЕнерго"</p>
+                            </div>
+                            
+                            <!-- Відгук 2 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">“</div>
+                                    <div class="testimonial-content">
+                                        <p>Ми звернулися до АКУМУЛЯТОР-Центру з питанням встановлення СЕС на нашому виробництві. За 3 місяці роботи системи ми вже заощадили майже 50 тис. грн.</p>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Олександра К.">
+                                        </div>
+                                        <div class="author-details">
+                                            <h4>Олександра К.</h4>
+                                            <p>Фінансовий директор ТОВ "АгроПродукт"</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Відгук 3 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">“</div>
+                                    <div class="testimonial-content">
+                                        <p>Вражений якістю послуг та швидкістю виконання робіт. Сонячна електростанція на нашому готелі працює бездоганно вже понад рік.</p>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Михайло С.">
+                                        </div>
+                                        <div class="author-details">
+                                            <h4>Михайло С.</h4>
+                                            <p>Власник готелю "Карпати"</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Відгук 4 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">“</div>
+                                    <div class="testimonial-content">
+                                        <p>Співпраця з АКУМУЛЯТОР-Центром дозволила нам значно скоротити витрати на електроенергію та забезпечити стабільну роботу нашого виробництва.</p>
+                                    </div>
+                                    <div class="testimonial-rating">
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                        <span class="star-gold">★</span>
+                                    </div>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar">
+                                            <img src="https://randomuser.me/api/portraits/women/29.jpg" alt="Наталія В.">
+                                        </div>
+                                        <div class="author-details">
+                                            <h4>Наталія В.</h4>
+                                            <p>Генеральний директор ТОВ "ЕкоПак"</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="testimonial-item">
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                        
+                        <div class="testimonials-controls">
+                            <div class="testimonials-progress">
+                                <div class="progress-bar" id="testimonialsProgress"></div>
                             </div>
-                            <div class="testimonial-text">
-                                <p>«Ми звернулися до АКУМУЛЯТОР-Центру з питанням встановлення СЕС на нашому виробництві. За 3 місяці роботи системи ми вже заощадили майже 50 тис. грн.»</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-photo">
-                                    <div style="width: 60px; height: 60px; border-radius: 50%; background-color: var(--accent-dark); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">К</div>
-                                    <!-- img src="images/client-2.jpg" alt="Олександра К.">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Олександра К.</h4>
-                                    <p>Фінансовий директор «ЕкоПак»</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-item">
-                            <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
-                            <div class="testimonial-text">
-                                <p>«Після встановлення сонячної електростанції наш склад працює без перебоїв навіть під час відключень. Дуже задоволені якістю обладнання та сервісом.»</p>
-                            </div>
-                            <div class="testimonial-author">
-                                <div class="author-photo">
-                                    <div style="width: 60px; height: 60px; border-radius: 50%; background-color: var(--accent-dark); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px;">К</div>
-                                    <!-- img src="images/client-3.jpg" alt="Тарас М.">
-                                </div>
-                                <div class="author-info">
-                                    <h4>Тарас М.</h4>
-                                    <p>Власник «Логістика-1»</p>
-                                </div>
+                            <div class="testimonials-buttons">
+                                <button class="testimonial-button prev" id="prevTestimonial">
+                                    <i class="fas fa-arrow-left"></i>
+                                </button>
+                                <button class="testimonial-button next" id="nextTestimonial">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -777,6 +861,17 @@
                 </div>
             </section>
 
+            <!-- Calculator Section -->
+            <section class="calculator-section" id="calculator">
+                <div class="container">
+                    <h2 class="section-title">Розрахуйте вартість сонячної електростанції</h2>
+                    <p class="section-subtitle">Дізнайтеся орієнтовну вартість, потужність та термін окупності сонячної електростанції для вашого бізнесу</p>
+                    
+                    <!-- Контейнер для калькулятора, який буде заповнений JavaScript -->
+                    <div id="solarCalculator"></div>
+                </div>
+            </section>
+
             <!-- Lead Form Section -->
             <section class="lead-form-section" id="lead-form">
                 <div class="container">
@@ -935,5 +1030,8 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script src="js/case-slider.js"></script>
+    <script src="js/testimonials-slider.js"></script>
+    <script src="js/solar-calculator.js"></script>
 </body>
 </html>
