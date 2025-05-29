@@ -122,6 +122,7 @@
             <section class="hero-section" id="hero">
                 <div class="hero-bg-container">
                     <div class="hero-gradient-bg"></div>
+                    <video class="hero-bg-video" src="images/video1solar.mp4" poster="images/video1solar-poster.jpg" loop autoplay muted playsinline preload="auto" loading="lazy"></video>
                     <div class="overlay"></div>
                 </div>
                 <div class="container">
@@ -400,49 +401,6 @@
                 </div>
             </section>
 
-            <!-- ROI Calculator Section -->
-            <section class="calculator-section" id="calculator">
-                <div class="container">
-                    <h2 class="section-title">Розрахуйте окупність сонячної електростанції</h2>
-                    <div class="calculator-container animate">
-                        <form id="roi-calculator" class="calculator-form">
-                            <div class="calculator-row">
-                                <label for="power-slider">Потужність системи:</label>
-                                <div class="slider-container">
-                                    <input type="range" id="power-slider" min="30" max="150" step="5" value="50">
-                                    <div class="slider-value"><span id="power-value">50</span> кВт</div>
-                                </div>
-                            </div>
-                            <div class="calculator-row">
-                                <label for="electricity-price">Ціна електроенергії (грн/кВт·год):</label>
-                                <input type="number" id="electricity-price" min="0" step="0.01" value="2.64">
-                            </div>
-                            <div class="calculator-row">
-                                <label for="grant-checkbox">Державний грант на 30%:</label>
-                                <label class="checkbox-container">
-                                    <input type="checkbox" id="grant-checkbox">
-                                    <span class="checkmark"></span>
-                                    Врахувати державний грант
-                                </label>
-                            </div>
-                        </form>
-                        <div class="calculator-results">
-                            <div class="result-item">
-                                <h3>Щомісячна економія:</h3>
-                                <div class="result-value"><span id="monthly-economy">15000</span> грн</div>
-                            </div>
-                            <div class="result-item">
-                                <h3>Термін окупності:</h3>
-                                <div class="result-value" id="payback-period">3 роки 6 місяців</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-center">
-                        <a href="#lead-form" class="cta-btn primary animate">Відправити розрахунок на email</a>
-                    </div>
-                </div>
-            </section>
-
             <!-- Financing Section -->
             <section class="financing-section" id="financing">
                 <div class="container">
@@ -458,8 +416,7 @@
                             </ul>
                         </div>
                         <div class="financing-image">
-                            <div style="width: 100%; height: 300px; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; border-radius: var(--border-radius-md);">Фінансування і кредитування</div>
-                            <!-- img src="images/financing.jpg" alt="Фінансування сонячних електростанцій" -->
+                            <img src="images/findok.png" alt="Фінансовий супровід" class="financing-animated-img" style="width:100%;max-width:350px;height:auto;display:block;margin:0 auto;" />
                         </div>
                     </div>
                     <div class="text-center">
@@ -777,78 +734,125 @@
                 <div class="container">
                     <h2 class="section-title">Наша команда</h2>
                     <p class="section-subtitle text-center animate">Досвідчені фахівці, які забезпечать якісний монтаж та сервіс</p>
-                    <div class="team-grid animate">
-                        <div class="team-category">
-                            <h3>Монтажні бригади</h3>
-                            <div class="team-members">
-                                <div class="team-member">
-                                    <div class="member-photo">
-                                        <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">Ф</div>
-                                        <!-- img src="images/team-1.jpg" alt="Монтажна бригада 1">
+                    <div class="team-slider-wrapper animate">
+                        <button class="team-slider-arrow team-slider-prev" aria-label="Попередній член команди">&lt;</button>
+                        <div class="team-slider">
+                            <div class="team-slider-track">
+                                <!-- Картка 1: Бригада #1 -->
+                                <div class="team-card">
+                                    <div class="team-card-inner">
+                                        <div class="team-card-front">
+                                            <div class="member-photo">
+                                                <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">Б1</div>
+                                            </div>
+                                            <h4>Бригада #1</h4>
+                                            <p>Дахові системи</p>
+                                        </div>
+                                        <div class="team-card-back">
+                                            <h4>Бригада #1</h4>
+                                            <p>Спеціалізація: монтаж сонячних панелей на дахах будь-якої складності. Досвід 5+ років.</p>
+                                        </div>
                                     </div>
-                                    <h4>Бригада #1</h4>
-                                    <p>Дахові системи</p>
                                 </div>
-                                <div class="team-member">
-                                    <div class="member-photo">
-                                        <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">Ф</div>
-                                        <!-- img src="images/team-2.jpg" alt="Монтажна бригада 2">
+                                <!-- Картка 2: Бригада #2 -->
+                                <div class="team-card">
+                                    <div class="team-card-inner">
+                                        <div class="team-card-front">
+                                            <div class="member-photo">
+                                                <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">Б2</div>
+                                            </div>
+                                            <h4>Бригада #2</h4>
+                                            <p>Наземні системи</p>
+                                        </div>
+                                        <div class="team-card-back">
+                                            <h4>Бригада #2</h4>
+                                            <p>Експерти з встановлення наземних сонячних електростанцій та металоконструкцій.</p>
+                                        </div>
                                     </div>
-                                    <h4>Бригада #2</h4>
-                                    <p>Наземні системи</p>
                                 </div>
-                                <div class="team-member">
-                                    <div class="member-photo">
-                                        <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">Ф</div>
-                                        <!-- img src="images/team-3.jpg" alt="Монтажна бригада 3">
+                                <!-- Картка 3: Бригада #3 -->
+                                <div class="team-card">
+                                    <div class="team-card-inner">
+                                        <div class="team-card-front">
+                                            <div class="member-photo">
+                                                <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">Б3</div>
+                                            </div>
+                                            <h4>Бригада #3</h4>
+                                            <p>Промислові об'єкти</p>
+                                        </div>
+                                        <div class="team-card-back">
+                                            <h4>Бригада #3</h4>
+                                            <p>Реалізація масштабних проектів для промислових підприємств. Висока продуктивність.</p>
+                                        </div>
                                     </div>
-                                    <h4>Бригада #3</h4>
-                                    <p>Промислові об'єкти</p>
+                                </div>
+                                <!-- Картка 4: Олексій М. -->
+                                <div class="team-card">
+                                    <div class="team-card-inner">
+                                        <div class="team-card-front">
+                                            <div class="member-photo">
+                                                <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">ОМ</div>
+                                            </div>
+                                            <h4>Олексій М.</h4>
+                                            <p>Головний інженер</p>
+                                        </div>
+                                        <div class="team-card-back">
+                                            <h4>Олексій М.</h4>
+                                            <p>Розробка та оптимізація проектних рішень. Контроль якості на всіх етапах.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Картка 5: Марина П. -->
+                                <div class="team-card">
+                                    <div class="team-card-inner">
+                                        <div class="team-card-front">
+                                            <div class="member-photo">
+                                                <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">МП</div>
+                                            </div>
+                                            <h4>Марина П.</h4>
+                                            <p>Проектувальник</p>
+                                        </div>
+                                        <div class="team-card-back">
+                                            <h4>Марина П.</h4>
+                                            <p>Точне проектування систем з урахуванням індивідуальних потреб клієнта.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Картка 6: Василь К. -->
+                                <div class="team-card">
+                                    <div class="team-card-inner">
+                                        <div class="team-card-front">
+                                            <div class="member-photo">
+                                                <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">ВК</div>
+                                            </div>
+                                            <h4>Василь К.</h4>
+                                            <p>Головний електрик</p>
+                                        </div>
+                                        <div class="team-card-back">
+                                            <h4>Василь К.</h4>
+                                            <p>Забезпечення надійного та безпечного підключення електрообладнання.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Картка 7: Ігор С. -->
+                                <div class="team-card">
+                                    <div class="team-card-inner">
+                                        <div class="team-card-front">
+                                            <div class="member-photo">
+                                                <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">ІС</div>
+                                            </div>
+                                            <h4>Ігор С.</h4>
+                                            <p>Сервіс-інженер</p>
+                                        </div>
+                                        <div class="team-card-back">
+                                            <h4>Ігор С.</h4>
+                                            <p>Оперативне сервісне обслуговування та технічна підтримка встановлених систем.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="team-category">
-                            <h3>Інженери та проектувальники</h3>
-                            <div class="team-members">
-                                <div class="team-member">
-                                    <div class="member-photo">
-                                        <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">Ф</div>
-                                        <!-- img src="images/team-4.jpg" alt="Інженер Олексій">
-                                    </div>
-                                    <h4>Олексій М.</h4>
-                                    <p>Головний інженер</p>
-                                </div>
-                                <div class="team-member">
-                                    <div class="member-photo">
-                                        <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">Ф</div>
-                                        <!-- img src="images/team-5.jpg" alt="Інженер Марина">
-                                    </div>
-                                    <h4>Марина П.</h4>
-                                    <p>Проектувальник</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-category">
-                            <h3>Електрики та сервіс-інженери</h3>
-                            <div class="team-members">
-                                <div class="team-member">
-                                    <div class="member-photo">
-                                        <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">Ф</div>
-                                        <!-- img src="images/team-6.jpg" alt="Електрик Василь">
-                                    </div>
-                                    <h4>Василь К.</h4>
-                                    <p>Головний електрик</p>
-                                </div>
-                                <div class="team-member">
-                                    <div class="member-photo">
-                                        <div style="width: 120px; height: 120px; border-radius: 50%; background-color: var(--accent-light); display: flex; align-items: center; justify-content: center; color: white; font-size: 36px; margin: 0 auto;">Ф</div>
-                                        <!-- img src="images/team-7.jpg" alt="Сервіс-інженер Ігор">
-                                    </div>
-                                    <h4>Ігор С.</h4>
-                                    <p>Сервіс-інженер</p>
-                                </div>
-                            </div>
-                        </div>
+                        <button class="team-slider-arrow team-slider-next" aria-label="Наступний член команди">&gt;</button>
                     </div>
                     <div class="team-stats animate">
                         <div class="stat-item">
@@ -1032,7 +1036,7 @@
                 <i class="fas fa-phone"></i>
                 <span>Подзвонити</span>
             </a>
-            <a href="#lead-form" class="mobile-form-btn">
+            <a href="#calculator" class="mobile-form-btn">
                 <i class="fas fa-calculator"></i>
                 <span>Розрахунок</span>
             </a>
@@ -1041,8 +1045,13 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
+    <script src="js/faq.js"></script>
+    <script src="js/hero-video.js"></script>
     <script src="js/case-slider.js"></script>
     <script src="js/testimonials-slider.js"></script>
     <script src="js/solar-calculator.js"></script>
+    <script src="js/leadform.js"></script>
+    <script src="js/team-slider.js"></script>
+    <script src="js/financing-section.js"></script>
 </body>
 </html>

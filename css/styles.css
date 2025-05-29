@@ -475,6 +475,86 @@ section {
     margin-bottom: var(--spacing-xs);
 }
 
+/* Financing Section */
+.financing-section {
+    padding: 64px 0;
+    background: linear-gradient(120deg, #f6fbe6 0%, #e7f6ff 100%);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(76,175,80,0.07), 0 1.5px 6px rgba(76,175,80,0.08);
+    margin-bottom: 48px;
+}
+.financing-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    justify-content: center;
+    margin: 32px 0 24px 0;
+}
+@media (min-width: 900px) {
+    .financing-content {
+        flex-direction: row;
+        align-items: stretch;
+        gap: 48px;
+    }
+}
+.financing-text {
+    flex: 1 1 0;
+    font-size: 1.18rem;
+    color: #2d3a2d;
+    background: rgba(255,255,255,0.93);
+    border-radius: 16px;
+    padding: 32px 28px 28px 28px;
+    box-shadow: 0 2px 16px rgba(76,175,80,0.07);
+    min-width: 260px;
+    max-width: 600px;
+}
+.financing-image {
+    flex: 0 0 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+.financing-list {
+    margin-top: 18px;
+    padding-left: 0;
+    list-style: none;
+}
+.financing-list li {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    font-size: 1.04rem;
+    color: #388e3c;
+    font-weight: 500;
+}
+.financing-list i {
+    color: #8bc34a;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+.financing-animated-img {
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(56,142,60,0.13);
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s cubic-bezier(.4,2,.6,1), transform 0.8s cubic-bezier(.4,2,.6,1);
+}
+.financing-animated-img.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.financing-content.animate {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.4,2,.6,1), transform 0.8s cubic-bezier(.4,2,.6,1);
+}
+.financing-content.animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* Services Section */
 .services-section {
     padding: var(--spacing-xxl) 0;
@@ -777,6 +857,67 @@ section {
     width: 100%;
     height: 100%;
     z-index: -1;
+    overflow: hidden;
+}
+
+.hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1.2s cubic-bezier(.4,2,.6,1);
+    background: #222;
+    pointer-events: none;
+}
+
+.hero-bg-video.loaded {
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, rgba(34,40,49,0.44) 0%, rgba(56,142,60,0.22) 100%);
+    z-index: 2;
+}
+
+.video-flash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(56, 142, 60, 0.32) 0%, rgba(255,255,255,0.38) 45%, rgba(56, 142, 60, 0.09) 100%);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 3;
+    transition: opacity 0.6s cubic-bezier(.4,2,.6,1);
+    mix-blend-mode: lighten;
+}
+
+.video-flash.active {
+    opacity: 1;
+}
+
+
+
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 420px;
+        max-height: 540px;
+    }
+    .hero-bg-video {
+        min-height: 100%;
+        min-width: 100%;
+    }
 }
 
 .hero-gradient-bg {
@@ -1464,5 +1605,249 @@ section {
     
     .mobile-sticky-cta {
         display: none;
+    }
+}
+
+/* Team Slider Styles */
+
+/* FAQ Modern Styles */
+.faq-section {
+    background: #f7fafc;
+    padding: 64px 0 56px 0;
+}
+.faq-container {
+    max-width: 760px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.faq-item {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+.faq-item.active, .faq-item:hover {
+    box-shadow: 0 8px 32px rgba(76,175,80,0.13);
+}
+.faq-question {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 22px 32px 22px 24px;
+    font-weight: 600;
+    font-size: 1.13rem;
+    color: var(--primary-color, #388e3c);
+    user-select: none;
+    transition: background 0.2s;
+}
+.faq-question:hover {
+    background: #f1f8e9;
+}
+.faq-toggle {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #e8f5e9;
+    transition: background 0.2s;
+}
+.faq-question:hover .faq-toggle {
+    background: #c8e6c9;
+}
+.faq-toggle i {
+    font-size: 1.25rem;
+    color: var(--primary-color, #388e3c);
+    transition: transform 0.8s cubic-bezier(.6,0,.4,1), color 0.2s;
+    display: inline-block;
+}
+.faq-item.active .faq-toggle i {
+    transform: rotate(180deg);
+    color: #fff;
+}
+.faq-item.active .faq-toggle {
+    background: var(--primary-color, #388e3c);
+}
+.faq-answer {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 32px;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.65;
+    background: #fff;
+    transition: max-height 0.8s cubic-bezier(.6,0,.4,1), opacity 0.7s cubic-bezier(.6,0,.4,1), padding 0.5s cubic-bezier(.6,0,.4,1);
+}
+.faq-item.active .faq-answer {
+    padding: 0 32px 22px 32px;
+    opacity: 1;
+    max-height: 400px;
+    transition: max-height 0.8s cubic-bezier(.6,0,.4,1), opacity 0.7s cubic-bezier(.6,0,.4,1), padding 0.5s cubic-bezier(.6,0,.4,1);
+}
+@media (max-width: 600px) {
+    .faq-question, .faq-answer {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+    .faq-answer.active {
+        padding-bottom: 18px;
+    }
+}
+
+.team-slider-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px; /* Або інша ширина за вашим дизайном */
+    margin: 30px auto;
+    overflow: hidden;
+}
+
+.team-slider {
+    overflow: hidden;
+}
+
+.team-slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.team-card {
+    min-width: 280px; /* Ширина картки, можна налаштувати */
+    margin: 0 15px;   /* Відступи між картками */
+    perspective: 1000px; /* Для 3D ефекту перевертання */
+    cursor: pointer;
+}
+
+.team-card-inner {
+    position: relative;
+    width: 100%;
+    height: 380px; /* Висота картки, можна налаштувати */
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 15px;
+}
+
+.team-card.is-flipped .team-card-inner {
+    transform: rotateY(180deg);
+}
+
+.team-card-front,
+.team-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 25px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.team-card-front {
+    background-color: #fff;
+    color: var(--text-dark);
+}
+
+.team-card-front .member-photo {
+    margin-bottom: 15px;
+}
+
+.team-card-front h4 {
+    font-size: 1.3em;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.team-card-front p {
+    font-size: 0.95em;
+    color: var(--text-light);
+}
+
+.team-card-back {
+    background-color: var(--primary-color);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.team-card-back h4 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.team-card-back p {
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+.team-slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    color: var(--primary-color);
+    font-size: 20px; /* Розмір стрілки */
+    cursor: pointer;
+    z-index: 10;
+    width: 30px;  /* Сплюснута по горизонталі */
+    height: 60px; /* Широка по вертикалі */
+    line-height: 60px; /* Центрування іконки стрілки */
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.team-slider-arrow:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.team-slider-prev {
+    left: -5px; /* Відступ від краю */
+}
+
+.team-slider-next {
+    right: -5px; /* Відступ від краю */
+}
+
+/* Адаптивність для стрілок на менших екранах */
+@media (max-width: 768px) {
+    .team-slider-arrow {
+        width: 25px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 18px;
+    }
+    .team-slider-prev {
+        left: 0px;
+    }
+    .team-slider-next {
+        right: 0px;
+    }
+    .team-card {
+        min-width: 260px;
+        margin: 0 10px;
+    }
+}
+@media (max-width: 480px) {
+    .team-slider-wrapper {
+        max-width: 100%; /* Дозволити слайдеру займати всю ширину */
+    }
+     .team-card {
+        min-width: 80%; /* Показувати одну картку майже на всю ширину */
+        margin: 0 auto; /* Центрувати картку */
     }
 }
