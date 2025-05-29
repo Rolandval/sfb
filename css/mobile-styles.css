@@ -1,0 +1,223 @@
+/* 
+ * Mobile Styles for Solar Landing Page
+ * Додаткові стилі для мобільної версії сайту
+ */
+
+@media (max-width: 768px) {
+    /* Загальні налаштування */
+    :root {
+        --spacing-xl: 30px;
+        --spacing-lg: 20px;
+        --spacing-md: 15px;
+        --spacing-sm: 10px;
+    }
+    
+    /* Контейнер */
+    .container {
+        width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Заголовки */
+    .section-title {
+        font-size: 1.8rem;
+        text-align: center;
+        word-wrap: break-word;
+        hyphens: auto;
+    }
+    
+    .section-subtitle {
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    /* Герой секція */
+    .hero-section {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .hero-content {
+        padding: var(--spacing-md) 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.2rem;
+        text-align: center;
+        word-wrap: break-word;
+        hyphens: auto;
+        line-height: 1.3;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        text-align: center;
+        margin-bottom: var(--spacing-lg);
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .hero-buttons .cta-btn {
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+        text-align: center;
+    }
+    
+    /* Секція проблема-рішення */
+    .pain-solution-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .pain-solution-tabs {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .pain-solution-tab {
+        margin-bottom: var(--spacing-sm);
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    
+    /* Секція процесу */
+    .process-steps {
+        grid-template-columns: 1fr;
+    }
+    
+    .process-step {
+        padding: var(--spacing-md);
+    }
+    
+    /* Секція кейсів */
+    .case-image {
+        height: 200px;
+    }
+    
+    .case-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    /* Секція обладнання */
+    .equipment-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .equipment-item {
+        padding: var(--spacing-md);
+    }
+    
+    /* Секція відгуків */
+    .testimonial-card {
+        padding: var(--spacing-md);
+    }
+    
+    .testimonial-quote {
+        font-size: 80px;
+    }
+    
+    .testimonial-content p {
+        font-size: 1rem;
+    }
+    
+    /* Секція форми */
+    .form-container {
+        padding: var(--spacing-md);
+    }
+    
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+    
+    .form-group {
+        margin-bottom: var(--spacing-md);
+    }
+    
+    /* Калькулятор */
+    .calculator-body {
+        grid-template-columns: 1fr;
+    }
+    
+    .calculator-results {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .calculator-footer {
+        flex-direction: column;
+    }
+    
+    .calculator-btn {
+        width: 100%;
+        margin-bottom: var(--spacing-sm);
+    }
+    
+    /* Футер */
+    .footer-top {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    
+    .footer-nav, .footer-contact, .footer-social {
+        width: 100%;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    /* Навігація */
+    .navbar {
+        padding: 10px 15px;
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+    
+    .site-logo {
+        height: 35px;
+    }
+    
+    /* Фіксовані елементи */
+    .mobile-sticky-cta {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+    
+    .mobile-call-btn, .mobile-form-btn {
+        flex: 1;
+        padding: 12px 0;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+        color: var(--text-dark);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.9rem;
+    }
+    
+    .mobile-call-btn {
+        background-color: var(--accent-light);
+        color: white;
+    }
+    
+    .mobile-form-btn {
+        background-color: #FF9800; /* Оранжевий колір */
+        color: white;
+    }
+    
+    .mobile-call-btn i, .mobile-form-btn i {
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+    }
+}

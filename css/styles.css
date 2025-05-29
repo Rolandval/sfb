@@ -344,15 +344,25 @@ section {
     position: relative;
 }
 
+.process-number-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: var(--spacing-md);
+    min-width: 60px;
+}
+
 .process-number {
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--accent);
     line-height: 1;
-    min-width: 60px;
     text-align: center;
-    position: relative;
-    z-index: 2;
+}
+
+.process-number-container .process-icon {
+    font-size: 2.2rem;
+    margin-top: 10px;
 }
 
 .process-content {
@@ -392,7 +402,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-top: var(--spacing-sm);
 }
 
@@ -602,8 +612,14 @@ section {
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
+}
+
+.site-logo {
+    height: 40px;
+    width: auto;
+    display: block;
 }
 
 .main-nav {
@@ -729,9 +745,9 @@ section {
 }
 
 .cta-btn.secondary {
-    background-color: transparent;
-    border: 2px solid var(--accent);
-    color: var(--accent);
+    background-color: #FF9800; /* Оранжевий колір */
+    border: 2px solid #FF9800;
+    color: white;
 }
 
 .cta-btn.secondary:hover {

@@ -37,33 +37,51 @@ document.addEventListener('DOMContentLoaded', function() {
         calculatorContainer.innerHTML = `
             <div class="calculator-wrapper">
                 <div class="calculator-header">
-                    <h3>Розрахуйте свою сонячну електростанцію</h3>
-                    <p>Введіть дані для розрахунку вартості та окупності сонячної електростанції</p>
+                    <h3>КАЛЬКУЛЯТОР ОКУПНОСТІ СЕС</h3>
+                    <p>Введіть дані для вашої СЕС</p>
                 </div>
                 
                 <div class="calculator-body">
                     <div class="calculator-inputs">
                         <div class="input-group">
                             <label for="monthlyConsumption">Середньомісячне споживання (кВт·год)</label>
-                            <input type="number" id="monthlyConsumption" min="100" max="100000" step="100" value="1000">
+                            <div class="input-value"><span id="consumptionValue">1000</span> кВт·год</div>
+                            <input type="number" id="monthlyConsumption" min="1000" max="50000" step="1000" value="1000">
                             <div class="range-slider">
-                                <input type="range" id="consumptionSlider" min="100" max="100000" step="100" value="1000">
+                                <input type="range" id="consumptionSlider" min="1000" max="50000" step="1000" value="1000">
+                                <div class="slider-progress" id="consumptionProgress"></div>
+                            </div>
+                            <div class="slider-labels">
+                                <span>1 тис.</span>
+                                <span>50 тис.</span>
                             </div>
                         </div>
                         
                         <div class="input-group">
                             <label for="electricityRate">Тариф на електроенергію (грн/кВт·год)</label>
-                            <input type="number" id="electricityRate" min="2" max="10" step="0.1" value="5.5">
+                            <div class="input-value"><span id="rateValue">5.5</span> грн/кВт·год</div>
+                            <input type="number" id="electricityRate" min="2" max="15" step="0.1" value="5.5">
                             <div class="range-slider">
-                                <input type="range" id="rateSlider" min="2" max="10" step="0.1" value="5.5">
+                                <input type="range" id="rateSlider" min="2" max="15" step="0.1" value="5.5">
+                                <div class="slider-progress" id="rateProgress"></div>
+                            </div>
+                            <div class="slider-labels">
+                                <span>2 грн</span>
+                                <span>15 грн</span>
                             </div>
                         </div>
                         
                         <div class="input-group">
                             <label for="roofArea">Доступна площа даху (м²)</label>
-                            <input type="number" id="roofArea" min="10" max="10000" step="10" value="100">
+                            <div class="input-value"><span id="areaValue">100</span> м²</div>
+                            <input type="number" id="roofArea" min="10" max="1000" step="10" value="100">
                             <div class="range-slider">
-                                <input type="range" id="areaSlider" min="10" max="10000" step="10" value="100">
+                                <input type="range" id="areaSlider" min="10" max="1000" step="10" value="100">
+                                <div class="slider-progress" id="areaProgress"></div>
+                            </div>
+                            <div class="slider-labels">
+                                <span>10 м²</span>
+                                <span>1000 м²</span>
                             </div>
                         </div>
                         
@@ -95,13 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <div class="result-label">Рекомендована потужність</div>
                         </div>
                         
-                        <div class="result-card">
-                            <div class="result-icon">💰</div>
-                            <div class="result-value">
-                                <span id="estimatedCost">0</span> грн
-                            </div>
-                            <div class="result-label">Орієнтовна вартість</div>
-                        </div>
+
                         
                         <div class="result-card">
                             <div class="result-icon">📊</div>
@@ -141,65 +153,79 @@ document.addEventListener('DOMContentLoaded', function() {
      * Додає обробники подій для елементів калькулятора
      */
     function setupEventListeners() {
-        // Отримуємо елементи форми
+        // Знаходимо елементи вводу
         const consumptionInput = document.getElementById('monthlyConsumption');
         const consumptionSlider = document.getElementById('consumptionSlider');
+        const consumptionValue = document.getElementById('consumptionValue');
+        const consumptionProgress = document.getElementById('consumptionProgress');
+        
         const rateInput = document.getElementById('electricityRate');
         const rateSlider = document.getElementById('rateSlider');
+        const rateValue = document.getElementById('rateValue');
+        const rateProgress = document.getElementById('rateProgress');
+        
         const areaInput = document.getElementById('roofArea');
         const areaSlider = document.getElementById('areaSlider');
+        const areaValue = document.getElementById('areaValue');
+        const areaProgress = document.getElementById('areaProgress');
+        
         const systemTypeSelect = document.getElementById('systemType');
         const panelTypeSelect = document.getElementById('panelType');
         const recalculateBtn = document.getElementById('recalculateBtn');
         const getOfferBtn = document.getElementById('getOfferBtn');
         
-        // Синхронізуємо поля вводу з повзунками
-        syncInputWithSlider(consumptionInput, consumptionSlider);
-        syncInputWithSlider(rateInput, rateSlider);
-        syncInputWithSlider(areaInput, areaSlider);
+        // Синхронізуємо поля вводу з повзунками та прогресом
+        syncInputWithSlider(consumptionInput, consumptionSlider, consumptionValue, consumptionProgress);
+        syncInputWithSlider(rateInput, rateSlider, rateValue, rateProgress);
+        syncInputWithSlider(areaInput, areaSlider, areaValue, areaProgress);
         
-        // Додаємо обробники подій для перерахунку
-        [consumptionInput, consumptionSlider, rateInput, rateSlider, 
-         areaInput, areaSlider, systemTypeSelect, panelTypeSelect].forEach(element => {
+        // Додаємо обробники подій для всіх елементів вводу
+        [consumptionInput, consumptionSlider, rateInput, rateSlider, areaInput, areaSlider, systemTypeSelect, panelTypeSelect].forEach(element => {
+            element.addEventListener('change', calculateSolarSystem);
             element.addEventListener('input', calculateSolarSystem);
         });
         
-        // Додаємо обробник для кнопки перерахунку
+        // Оновлюємо прогрес слайдерів при завантаженні
+        updateSliderProgress(consumptionSlider, consumptionProgress);
+        updateSliderProgress(rateSlider, rateProgress);
+        updateSliderProgress(areaSlider, areaProgress);
+        
+        // Кнопка перерахунку
         recalculateBtn.addEventListener('click', calculateSolarSystem);
         
-        // Додаємо обробник для кнопки отримання комерційної пропозиції
+        // Кнопка отримання комерційної пропозиції
         getOfferBtn.addEventListener('click', function() {
-            // Прокручуємо до форми заявки
+            // Перехід до форми заявки
             const leadForm = document.getElementById('lead-form');
             if (leadForm) {
                 leadForm.scrollIntoView({ behavior: 'smooth' });
-                
-                // Заповнюємо поле коментаря результатами розрахунку
-                setTimeout(() => {
-                    const commentField = document.getElementById('comment');
-                    if (commentField) {
-                        const power = document.getElementById('recommendedPower').textContent;
-                        const cost = document.getElementById('estimatedCost').textContent;
-                        const payback = document.getElementById('paybackPeriod').textContent;
-                        
-                        commentField.value = `Розрахунок калькулятора: ${power} кВт, ${cost} грн, окупність ${payback} років`;
-                    }
-                }, 1000);
             }
         });
     }
     
     /**
-     * Синхронізує поле вводу з повзунком
+     * Синхронізує поле вводу з повзунком та відображенням значення
      */
-    function syncInputWithSlider(input, slider) {
+    function syncInputWithSlider(input, slider, valueDisplay, progressBar) {
         input.addEventListener('input', function() {
-            slider.value = input.value;
+            slider.value = this.value;
+            if (valueDisplay) valueDisplay.textContent = this.value;
+            if (progressBar) updateSliderProgress(slider, progressBar);
         });
         
         slider.addEventListener('input', function() {
-            input.value = slider.value;
+            input.value = this.value;
+            if (valueDisplay) valueDisplay.textContent = this.value;
+            if (progressBar) updateSliderProgress(slider, progressBar);
         });
+    }
+    
+    /**
+     * Оновлює прогрес слайдера
+     */
+    function updateSliderProgress(slider, progressBar) {
+        const percent = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
+        progressBar.style.width = percent + '%';
     }
     
     /**
@@ -344,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateResults(power, cost, production, payback, savings) {
         // Оновлюємо значення в результатах
         document.getElementById('recommendedPower').textContent = power.toFixed(1);
-        document.getElementById('estimatedCost').textContent = formatNumber(cost);
+        // Видалено оновлення елемента estimatedCost
         document.getElementById('annualProduction').textContent = formatNumber(production);
         document.getElementById('paybackPeriod').textContent = payback.toFixed(1);
         document.getElementById('monthlySavings').textContent = formatNumber(savings);
