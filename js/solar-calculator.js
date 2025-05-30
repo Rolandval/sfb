@@ -86,22 +86,28 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         
                         <div class="input-group">
-                            <label for="systemType">Тип системи</label>
-                            <select id="systemType">
-                                <option value="grid">Мережева (on-grid)</option>
-                                <option value="hybrid">Гібридна з накопиченням</option>
-                                <option value="autonomous">Автономна</option>
-                            </select>
+                        <label class="switch-group-label">Тип системи</label>
+                        <div class="switch-field" id="systemTypeGroup">
+                            <input type="radio" id="systemType_grid" name="systemType" value="grid" checked>
+                            <label for="systemType_grid">Мережева</label>
+                            <input type="radio" id="systemType_hybrid" name="systemType" value="hybrid">
+                            <label for="systemType_hybrid">Гібридна</label>
+                            <input type="radio" id="systemType_autonomous" name="systemType" value="autonomous">
+                            <label for="systemType_autonomous">Автономна</label>
                         </div>
-                        
-                        <div class="input-group">
-                            <label for="panelType">Тип панелей</label>
-                            <select id="panelType">
-                                <option value="standard">Стандартні (450 Вт)</option>
-                                <option value="premium">Преміум (550 Вт)</option>
-                                <option value="bifacial">Двосторонні (550+ Вт)</option>
-                            </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label class="switch-group-label">Тип панелей</label>
+                        <div class="switch-field" id="panelTypeGroup">
+                            <input type="radio" id="panelType_standard" name="panelType" value="standard" checked>
+                            <label for="panelType_standard">Стандартні</label>
+                            <input type="radio" id="panelType_premium" name="panelType" value="premium">
+                            <label for="panelType_premium">Преміум</label>
+                            <input type="radio" id="panelType_bifacial" name="panelType" value="bifacial">
+                            <label for="panelType_bifacial">Двосторонні</label>
                         </div>
+                    </div>
                     </div>
                     
                     <div class="calculator-results">
@@ -153,44 +159,49 @@ document.addEventListener('DOMContentLoaded', function() {
      * Додає обробники подій для елементів калькулятора
      */
     function setupEventListeners() {
-        // Знаходимо елементи вводу
+        // Отримуємо елементи DOM
         const consumptionInput = document.getElementById('monthlyConsumption');
         const consumptionSlider = document.getElementById('consumptionSlider');
-        const consumptionValue = document.getElementById('consumptionValue');
-        const consumptionProgress = document.getElementById('consumptionProgress');
+        const consumptionValueDisplay = document.getElementById('consumptionValue');
+        const consumptionProgressBar = document.getElementById('consumptionProgress');
         
         const rateInput = document.getElementById('electricityRate');
         const rateSlider = document.getElementById('rateSlider');
-        const rateValue = document.getElementById('rateValue');
-        const rateProgress = document.getElementById('rateProgress');
-        
+        const rateValueDisplay = document.getElementById('rateValue');
+        const rateProgressBar = document.getElementById('rateProgress');
+
         const areaInput = document.getElementById('roofArea');
         const areaSlider = document.getElementById('areaSlider');
-        const areaValue = document.getElementById('areaValue');
-        const areaProgress = document.getElementById('areaProgress');
+        const areaValueDisplay = document.getElementById('areaValue');
+        const areaProgressBar = document.getElementById('areaProgress');
         
-        const systemTypeSelect = document.getElementById('systemType');
-        const panelTypeSelect = document.getElementById('panelType');
-        const recalculateBtn = document.getElementById('recalculateBtn');
-        const getOfferBtn = document.getElementById('getOfferBtn');
+        // Radio buttons for systemType and panelType
+        const systemTypeRadios = document.querySelectorAll('input[name="systemType"]');
+        const panelTypeRadios = document.querySelectorAll('input[name="panelType"]');
+
+        // Синхронізація полів вводу з повзунками
+        syncInputWithSlider(consumptionInput, consumptionSlider, consumptionValueDisplay, consumptionProgressBar);
+        syncInputWithSlider(rateInput, rateSlider, rateValueDisplay, rateProgressBar);
+        syncInputWithSlider(areaInput, areaSlider, areaValueDisplay, areaProgressBar);
+
+        // Обробники подій для зміни значень
+        consumptionInput.addEventListener('input', calculateSolarSystem);
+        consumptionSlider.addEventListener('input', calculateSolarSystem);
+        rateInput.addEventListener('input', calculateSolarSystem);
+        rateSlider.addEventListener('input', calculateSolarSystem);
+        areaInput.addEventListener('input', calculateSolarSystem);
+        areaSlider.addEventListener('input', calculateSolarSystem);
         
-        // Синхронізуємо поля вводу з повзунками та прогресом
-        syncInputWithSlider(consumptionInput, consumptionSlider, consumptionValue, consumptionProgress);
-        syncInputWithSlider(rateInput, rateSlider, rateValue, rateProgress);
-        syncInputWithSlider(areaInput, areaSlider, areaValue, areaProgress);
-        
-        // Додаємо обробники подій для всіх елементів вводу
-        [consumptionInput, consumptionSlider, rateInput, rateSlider, areaInput, areaSlider, systemTypeSelect, panelTypeSelect].forEach(element => {
-            element.addEventListener('change', calculateSolarSystem);
-            element.addEventListener('input', calculateSolarSystem);
-        });
+        systemTypeRadios.forEach(radio => radio.addEventListener('change', calculateSolarSystem));
+        panelTypeRadios.forEach(radio => radio.addEventListener('change', calculateSolarSystem));
         
         // Оновлюємо прогрес слайдерів при завантаженні
-        updateSliderProgress(consumptionSlider, consumptionProgress);
-        updateSliderProgress(rateSlider, rateProgress);
-        updateSliderProgress(areaSlider, areaProgress);
+        updateSliderProgress(consumptionSlider, consumptionProgressBar);
+        updateSliderProgress(rateSlider, rateProgressBar);
+        updateSliderProgress(areaSlider, areaProgressBar);
         
         // Кнопка перерахунку
+        const recalculateBtn = document.getElementById('recalculateBtn');
         recalculateBtn.addEventListener('click', calculateSolarSystem);
         
         // Кнопка отримання комерційної пропозиції
@@ -243,8 +254,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const consumption = parseFloat(document.getElementById('monthlyConsumption').value);
         const rate = parseFloat(document.getElementById('electricityRate').value);
         const area = parseFloat(document.getElementById('roofArea').value);
-        const systemType = document.getElementById('systemType').value;
-        const panelType = document.getElementById('panelType').value;
+        const systemType = document.querySelector('input[name="systemType"]:checked').value;
+        const panelType = document.querySelector('input[name="panelType"]:checked').value;
         
         // Розраховуємо рекомендовану потужність (кВт)
         let recommendedPower = calculateRecommendedPower(consumption, systemType);

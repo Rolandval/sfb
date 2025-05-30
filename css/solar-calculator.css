@@ -198,16 +198,220 @@
 }
 
 @keyframes pulse-animation {
-    0% {
-        transform: scale(1);
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+/* Styles for Radio Button Switches */
+.switch-group-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Match other labels */
+    color: var(--text-dark); /* Match other labels */
+    font-size: 1.1rem; /* Match other labels */
+}
+
+.switch-field {
+    display: flex;
+    overflow: hidden;
+    border-radius: var(--border-radius); /* Use theme variable */
+    background-color: var(--secondary-bg); /* Lighter background for the switch track */
+    border: 1px solid var(--border-color); /* Use theme variable */
+    width: 100%; 
+    margin-bottom: var(--spacing-md); /* Consistent spacing */
+}
+
+.switch-field input[type="radio"] {
+    position: absolute !important;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    width: 1px;
+    border: 0;
+    overflow: hidden;
+}
+
+.switch-field label {
+    flex-grow: 1; 
+    text-align: center; 
+    background-color: transparent; 
+    color: var(--text-muted); 
+    font-size: 1rem; /* Match input field font size */
+    font-weight: 500;
+    line-height: 1.5; /* Ensure text is vertically centered well */
+    padding: 10px 10px; /* Adjusted padding for better feel */
+    border-right: 1px solid var(--border-color); 
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    cursor: pointer;
+    user-select: none; 
+}
+
+.switch-field label:last-of-type {
+    border-right: none; 
+}
+
+.switch-field input[type="radio"]:checked + label {
+    background-color: var(--accent); 
+    color: #FFFFFF; 
+    font-weight: 600;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); 
+}
+
+.switch-field label:hover {
+    background-color: rgba(var(--accent-rgb), 0.1); /* Use accent color with alpha for hover */
+    color: var(--accent-dark);
+}
+
+.switch-field input[type="radio"]:checked + label:hover {
+    background-color: var(--accent-dark); /* Darker shade of accent on hover for selected item */
+}
+
+/* Ensure the main calculator container has a dark background if not already set */
+/* This was already present, but good to ensure it's themed if needed */
+/* .calculator-container {
+    background-color: #1C1C1E; 
+    padding: 20px;
+    border-radius: 10px;
+} */
+
+/* Adjust input group styling if needed to align with switches */
+/* .calculator-inputs .input-group { */
+    /* margin-bottom: 20px; */ /* Already var(--spacing-md) */
+/* } */
+
+/* Style for the labels of other input fields for consistency */
+/* .calculator-inputs .input-group > label:not(.switch-group-label) {
+    color: #E0E0E0;
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+} */
+
+.result-card h4 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.result-card p {
+    color: var(--accent-dark);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.result-card .unit {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-left: 5px;
+}
+
+.calculator-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+    .calculator-actions {
+        flex-direction: row;
+        justify-content: space-between;
     }
-    50% {
-        transform: scale(1.05);
+    .calculator-actions .btn {
+        flex-grow: 1;
     }
-    100% {
-        transform: scale(1);
+    .calculator-actions .btn:not(:last-child) {
+        margin-right: var(--spacing-sm); /* Add space between buttons on larger screens */
     }
 }
+
+.btn {
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: var(--border-radius);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    text-align: center;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--accent);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent-dark);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-bg);
+    color: var(--accent-dark);
+    border: 2px solid var(--accent);
+}
+
+.btn-secondary:hover {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: var(--accent-dark);
+    transform: translateY(-2px);
+}
+
+.info-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    cursor: help;
+    color: var(--text-muted);
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 220px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 10;
+    bottom: 125%; 
+    left: 50%;
+    margin-left: -110px; 
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
 
 .result-icon {
     font-size: 1.6rem;
